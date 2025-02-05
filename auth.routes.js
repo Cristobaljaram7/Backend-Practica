@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 
 // Clave secreta desde variables de entorno
-const SECRET_KEY = process.env.SECRET_KEY || "supersecreto";
+const SECRET_KEY = process.env.SECRET_KEY 
 
 // Definir el esquema del usuario directamente en este archivo
 const userSchema = new mongoose.Schema({
@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
     apellido: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    role: { type: String, enum: ['user', 'admin'], default: 'user' },
+    role: { type: String, required: true, enum: ['Administrador', 'Operario','User'], default: 'User' }
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);
