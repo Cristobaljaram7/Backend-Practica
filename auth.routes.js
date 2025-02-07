@@ -106,7 +106,7 @@ router.post('/logout', (req, res) => {
 // Obtener datos del usuario actual
 router.get('/profile', async (req, res) => {
     try {
-        const user = await User.findById(req.params.userId);
+        const user = await User.findById(req.params.userEmail);
         if (!user) {
             return res.status(404).json({ error: "Usuario no encontrado" });
         }
