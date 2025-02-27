@@ -1,0 +1,28 @@
+// // **Formulario - Guardar datos y la imagen**
+// router.post('/enviar-formulario', verifyToken, upload.single('image'), async (req, res) => {
+//     try {
+//         const { nombre, rut, email, tema, area } = req.body;
+//         const imageUrl = req.file ? /uploads/${req.file.filename} : null; // Guardamos la URL de la imagen si se sube
+
+//         // Validar que 'area' y 'tema' no estén vacíos
+//         if (!area || !tema) {
+//             return res.status(400).json({ success: false, message: "El área y el tema son requeridos" });
+//         }
+
+//         // Crear y guardar el nuevo formulario con la imagen
+//         const nuevoFormulario = new Formulario({
+//             nombre,
+//             rut,
+//             email,
+//             tema,
+//             area,
+//             userId: req.userId,
+//             imageUrl  // Almacenamos la URL de la imagen aquí
+//         });
+
+//         await nuevoFormulario.save();
+//         res.status(201).json({ success: true, message: "Formulario guardado correctamente" });
+//     } catch (err) {
+//         res.status(500).json({ success: false, error: err.message });
+//     }
+// });
